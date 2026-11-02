@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/OneUEdu/oneu_connect",
+  "commit": "bada6c225da5cd89a7b4b8a49677493f167dc124",
+  "path": "integrations/chatgpt/one-u-education/source/skills",
+  "sha256": {
+    "skills/australian-course-application/SKILL.md": "e36afcf386e24e6c3cc0109f48e6700eff8d196714b9c5089b627463a93ee9c7",
+    "skills/australian-course-application/agents/openai.yaml": "e244170b17c5f833145231612aaa7816a9c92adc3f3489953d96d17d66b0d04a",
+    "skills/australian-immigration-planning/SKILL.md": "5c01cb4fe7c7e0c43cbada9b10fa1c55c4617a9dd2168e9e483d18737e53ebe9",
+    "skills/australian-immigration-planning/agents/openai.yaml": "487b6819a8adc6bddd49c819c655e59e8e2b0cdbf5a8f5dfb67533256cd0c4fd",
+    "skills/australian-immigration-planning/references/codex-setup.md": "c050861e39bd1c3a56513f66616f8e0aa06613d2329fe8ad3150c6969175fe5f",
+    "skills/australian-immigration-planning/references/planning-service.md": "b5bb94f179395ed76e6b775c7db8686ea2907780d03e2e685517e2677dc0083c",
+    "skills/australian-immigration-planning/references/public-consultation.md": "076928f9dc4fdb396bab84896f15e0c068ae841a3812a010297d93449254d682",
+    "skills/website-feedback/SKILL.md": "82fb50f00b05438be938fbcbf3f557ff7b0d025abf7b6631fad3e0a3a0546805",
+    "skills/website-feedback/agents/openai.yaml": "4b4570c477839699c22503097c53487f9b7cc22aafee61c881dbe8105029df43",
+    "skills/website-feedback/references/examples.md": "1efca4a460740f2dc8668e019a68961a55d024b7375d99bb75c1fd5b91b648cc",
+    "skills/website-feedback/references/setup.md": "64a0f0f2556dc0b066531143c3d662c9f701b0bcf3afbbca0564af96c956543c"
+  },
+  "note": "Migration snapshot; active skill source is now OneUEdu/oneuedu-skills. Original bytes preserved."
+}

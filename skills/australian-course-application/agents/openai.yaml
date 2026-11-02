@@ -1,0 +1,7 @@
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "one-u-education"
+      description: "Existing approved OneU application connection"
+      transport: "streamable_http"
+      url: "https://mcp.oneuedu.com/mcp"

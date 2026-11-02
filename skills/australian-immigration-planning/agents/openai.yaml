@@ -1,0 +1,7 @@
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "one-u-education"
+      description: "Official OneU public information and OAuth planning service; usable without a plugin"
+      transport: "streamable_http"
+      url: "https://mcp.oneuedu.com/mcp"

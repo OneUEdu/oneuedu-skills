@@ -1,0 +1,34 @@
+# One U Education Skills
+
+One U Education 面向官网用户的技能源码，私有仓库。与面向员工的 `OneUEdu/oneulink-skills` 分开维护。
+
+| 技能 | 职责 |
+| --- | --- |
+| [website-feedback](skills/website-feedback/SKILL.md) | 提交反馈、查询本人进度、续接公开讨论 |
+| [australian-course-application](skills/australian-course-application/SKILL.md) | 保存申请意向，使用安全表单和确认组件交给申请专员 |
+| [australian-immigration-planning](skills/australian-immigration-planning/SKILL.md) | 个人规划资料、计算及结果解读 |
+
+## 维护与分发
+
+此仓库是技能说明的唯一维护源；插件包装位于 [oneuedu-plugin](https://github.com/OneUEdu/oneuedu-plugin)。插件同步明确的 Git 提交，记录逐文件 SHA-256，不手工维护第二份技能。
+
+独立使用时，取得仓库访问权限，复制完整的 `skills/<name>/` 到所用客户端支持的技能安装位置，或使用插件仓库构建独立技能包。保留 `references/` 和 `agents/`，不要只复制 SKILL.md。独立安装不等于已连接 MCP、已登录或已获得工具。
+
+所有技能连接 `https://mcp.oneuedu.com/mcp`。本人反馈需有效账号连接；匿名反馈仍为单向。反馈讨论功能须先部署配套 v2／CRM／官网／MCP；初始源码不表示生产已开放全部工具。
+
+目前沿用既有宿主说明，尚未新增或验证 Claude 插件格式。申请流程依赖安全表单与确认组件，不能把可安装 SKILL.md 等同于所有客户端均可完成该流程。未来客户端差异应经过实际验证，包装适配维护在插件仓库。
+
+## 本地检查
+
+Python 3.12，标准库即可：
+
+```sh
+python3 scripts/check.py
+python3 -m unittest discover -s scripts -p 'test_*.py' -v
+```
+
+校验技能入口、MCP 依赖、引用文件和分发边界；不请求远程服务、不安装技能、不发邮件。技能内容改动还需实际业务验收。
+
+## 迁移
+
+初始 11 份文件原样取自 CRM 已提交候选包，提交及哈希记录在 [migration-source.json](docs/migration-source.json)。没有改写现有业务规则。历史申请技能来自官网生成快照；从本次迁移起，**插件侧说明在此维护**，旧生成器输出需人工对照并审阅，不能覆盖本库。WhatsApp 运行时和服务端规则仍归原项目。
