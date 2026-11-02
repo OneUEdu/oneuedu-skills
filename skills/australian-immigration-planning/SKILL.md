@@ -3,10 +3,11 @@ name: australian-immigration-planning
 description: >-
   Help with Australian migration options and personal planning through OneU public
   information, or save/correct a planning dossier, calculate and explain saved results.
-  Use for 留澳规划、移民路线比较、州担保或职业评估咨询、继续上次规划.
+  Use for plans to stay in Australia, comparing migration pathways, state nomination or
+  skills assessment questions, and continuing a previous plan, in any language.
   School-application submission and software or algorithm development use their own workflows.
 metadata:
-  version: "1.9.2"
+  version: "1.9.3"
 ---
 
 # Australian immigration planning
