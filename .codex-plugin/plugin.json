@@ -1,0 +1,44 @@
+{
+  "name": "one-u-education",
+  "description": "Australian study and migration help from One U Education: public course, school, occupation and visa data, personal migration planning and feedback through the official MCP server.",
+  "author": {
+    "name": "One U Education",
+    "url": "https://www.oneuedu.com/"
+  },
+  "homepage": "https://www.oneuedu.com/",
+  "repository": "https://github.com/OneUEdu/oneuedu-skills",
+  "keywords": [
+    "australia",
+    "study",
+    "migration",
+    "visa",
+    "courses",
+    "mcp"
+  ],
+  "skills": [
+    "./skills/australian-immigration-planning",
+    "./skills/website-feedback"
+  ],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "One U Education",
+    "shortDescription": "Australian courses & migration",
+    "longDescription": "Search One U Education data on Australian CRICOS courses, schools and RTOs, ANZSCO occupations, skills assessments, state nomination, SkillSelect invitation rounds and visa fees, processing times and conditions. Public lookups need no account. With a connected One U Education account, users can keep a personal migration-planning dossier, calculate pathway options and read the results, and follow up on their own feedback. Information is general, links to its source and does not establish personal eligibility.",
+    "developerName": "One U Education",
+    "category": "Education & Research",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://www.oneuedu.com/",
+    "privacyPolicyURL": "https://mcp.oneuedu.com/privacy",
+    "termsOfServiceURL": "https://www.oneuedu.com/en-US/data-terms",
+    "defaultPrompt": [
+      "Compare Melbourne carpentry courses for an onshore student by indicative fees, duration and entry requirements.",
+      "Look up the carpenter occupation and show available skills assessment information and related courses.",
+      "Help me compare ways to stay in Australia after my studies and save a planning dossier."
+    ],
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}

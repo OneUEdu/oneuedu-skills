@@ -8,17 +8,37 @@ One U Education 面向官网用户的技能源码。与面向员工的 `OneUEdu/
 | [australian-course-application](skills/australian-course-application/SKILL.md) | 保存申请意向，使用安全表单和确认组件交给申请专员 |
 | [australian-immigration-planning](skills/australian-immigration-planning/SKILL.md) | 个人规划资料、计算及结果解读 |
 
+## 一句话安装
+
+仓库根目录放了各客户端的插件清单，可以直接从 GitHub 安装。插件版会同时装好技能和官方 MCP 连接 `https://mcp.oneuedu.com/mcp`。公开查询不用登录；建规划档案、查自己的反馈时，客户端会弹出 One U Education 登录。
+
+| 客户端 | 安装命令 | 装进去的 |
+| --- | --- | --- |
+| Claude Code | `claude plugin install one-u-education --marketplace OneUEdu/oneuedu-skills` | 规划、反馈技能 + MCP |
+| Codex | `codex plugin marketplace add OneUEdu/oneuedu-skills`，再 `codex plugin add one-u-education@oneuedu` | 规划、反馈技能 + MCP |
+| GitHub Copilot CLI | `copilot plugin marketplace add OneUEdu/oneuedu-skills`，再 `copilot plugin install one-u-education@oneuedu` | 规划、反馈技能 + MCP |
+| 其他支持 Agent Skills 的客户端（Cursor、Gemini CLI、OpenCode 等） | `npx skills add OneUEdu/oneuedu-skills -s australian-immigration-planning website-feedback` | 只有技能，MCP 要按客户端说明另加 |
+
+在 Claude Code 对话里也可以输入 `/plugin install one-u-education --marketplace OneUEdu/oneuedu-skills`。
+
+- 申请技能 `australian-course-application` 要用 ChatGPT 的安全表单和确认卡片，直接安装不带它。ChatGPT 版由 oneuedu-plugin 打包、走 OpenAI 审核。
+- 清单不写版本号，客户端按 Git 提交更新。推送新提交后，用户运行 `claude plugin update one-u-education@oneuedu`、`codex plugin marketplace upgrade` 或 `copilot plugin update one-u-education@oneuedu` 拿到新版。
+- `.cursor-plugin/` 按 Cursor 文档写好了，但 Cursor 只能从自己的插件市场装，要先在 cursor.com/marketplace/publish 提交，没有实测。VS Code 的 “Chat: Install Plugin From Source” 用的是 Copilot 格式，也没有实测。
+- 2026-11-03 在隔离的配置目录里实测：Claude Code 2.1.316、Codex CLI 0.166.0、Copilot CLI 1.0.105 都只加载规划、反馈两个技能，并连上 MCP；skills CLI 1.7.6 按 `-s` 只装这两个。
+
+清单由 `scripts/platforms.py` 一处生成，不要手改。改名称、介绍、技能列表或 MCP 地址时改这个脚本，再运行 `python3 scripts/platforms.py`；`scripts/check.py` 会检查清单是不是最新。新增技能要不要进直接安装版，在脚本的 `SKILLS` 里决定。
+
 ## 维护与分发
 
 此仓库是技能说明的唯一维护源；插件包装位于 [oneuedu-plugin](https://github.com/OneUEdu/oneuedu-plugin)。插件的 `plugins/one-u-education/skills` 通过 Git 子模块引用本完整仓库的确切提交，不再复制同步或维护第二份技能正文。源仓库内的业务入口仍是 `skills/<name>/`，构建会将它们放入原有安装包结构。
 
 修改后先运行下面的本地检查，提交并推送到本仓库，再在插件仓库检出这个已推送的子模块提交、`git add plugins/one-u-education/skills`，验证并提交父仓库指针。新增技能提交不会让插件自动更新；取得插件源码需递归克隆或执行 `git submodule update --init --recursive`。完整命令见插件仓库的日常维护说明。
 
-独立使用时，克隆本仓库后，将完整的 `skills/<name>/` 复制到所用客户端支持的技能安装位置，或使用插件仓库构建独立技能包。保留 `references/` 和 `agents/`，不要只复制 SKILL.md。独立安装不等于已连接 MCP、已登录或已获得工具。
+不用上面的命令时，可以把完整的 `skills/<name>/` 复制到客户端的技能目录，或用插件仓库构建独立技能包。保留 `references/` 和 `agents/`，不要只复制 SKILL.md。只装技能不等于已连接 MCP、已登录或已获得工具。
 
 所有技能连接 `https://mcp.oneuedu.com/mcp`。本人反馈需有效账号连接；匿名反馈仍为单向。反馈讨论功能须先部署配套 v2／CRM／官网／MCP；初始源码不表示生产已开放全部工具。
 
-目前沿用既有宿主说明，尚未新增或验证 Claude 插件格式。申请流程依赖安全表单与确认组件，不能把可安装 SKILL.md 等同于所有客户端均可完成该流程。未来客户端差异应经过实际验证，包装适配维护在插件仓库。
+申请流程依赖安全表单与确认组件，不能把可安装 SKILL.md 等同于所有客户端均可完成该流程。新增客户端要先实际验证；ChatGPT 提审包的清单和打包维护在插件仓库。
 
 ## 本地检查
 
