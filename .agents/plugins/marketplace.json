@@ -1,0 +1,20 @@
+{
+  "name": "oneuedu",
+  "interface": {
+    "displayName": "One U Education"
+  },
+  "plugins": [
+    {
+      "name": "one-u-education",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Education & Research"
+    }
+  ]
+}

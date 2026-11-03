@@ -1,0 +1,13 @@
+{
+  "name": "oneuedu",
+  "owner": {
+    "name": "One U Education"
+  },
+  "plugins": [
+    {
+      "name": "one-u-education",
+      "source": "./",
+      "description": "Australian study and migration help from One U Education: public course, school, occupation and visa data, personal migration planning and feedback through the official MCP server."
+    }
+  ]
+}

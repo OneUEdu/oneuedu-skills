@@ -2,6 +2,7 @@
 """Validate skill discovery, bundled references and existing MCP dependencies offline."""
 import re
 from pathlib import Path
+import platforms
 
 ROOT = Path(__file__).resolve().parents[1]
 ENDPOINT = 'https://mcp.oneuedu.com/mcp'
@@ -48,3 +49,4 @@ def validate(root=ROOT):
 
 if __name__ == '__main__':
     print('Validated: ' + ', '.join(validate()))
+    print('Manifests current: ' + ', '.join(platforms.check()))
