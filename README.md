@@ -1,6 +1,6 @@
 # One U Education Skills
 
-One U Education 面向官网用户的技能源码，私有仓库。与面向员工的 `OneUEdu/oneulink-skills` 分开维护。
+One U Education 面向官网用户的技能源码。与面向员工的 `OneUEdu/oneulink-skills` 分开维护。
 
 | 技能 | 职责 |
 | --- | --- |
@@ -14,7 +14,7 @@ One U Education 面向官网用户的技能源码，私有仓库。与面向员�
 
 修改后先运行下面的本地检查，提交并推送到本仓库，再在插件仓库检出这个已推送的子模块提交、`git add plugins/one-u-education/skills`，验证并提交父仓库指针。新增技能提交不会让插件自动更新；取得插件源码需递归克隆或执行 `git submodule update --init --recursive`。完整命令见插件仓库的日常维护说明。
 
-独立使用时，取得仓库访问权限，复制完整的 `skills/<name>/` 到所用客户端支持的技能安装位置，或使用插件仓库构建独立技能包。保留 `references/` 和 `agents/`，不要只复制 SKILL.md。独立安装不等于已连接 MCP、已登录或已获得工具。
+独立使用时，克隆本仓库后，将完整的 `skills/<name>/` 复制到所用客户端支持的技能安装位置，或使用插件仓库构建独立技能包。保留 `references/` 和 `agents/`，不要只复制 SKILL.md。独立安装不等于已连接 MCP、已登录或已获得工具。
 
 所有技能连接 `https://mcp.oneuedu.com/mcp`。本人反馈需有效账号连接；匿名反馈仍为单向。反馈讨论功能须先部署配套 v2／CRM／官网／MCP；初始源码不表示生产已开放全部工具。
 
