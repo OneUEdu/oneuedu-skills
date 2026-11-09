@@ -25,6 +25,10 @@ New reports need `issue_type`, `target_type` and `content`; school/course report
 
 When the user has requested submission and enough information is available, perform it without requiring a repeated confirmation. For drafting-only requests, provide a draft without submitting. See [examples](references/examples.md) for ambiguous and incomplete reports.
 
+## Packaged courses
+
+Use `target_type=course_package` for a packaged study plan. Submit text from the user or their AI; the source may be conversation, a webpage, a document or another source. Preserve the school, course sequence, separate onshore/offshore total tuition, duration and stated conditions. Unknown details remain unknown. Do not split the package total into course fees. This type does not accept attachments and never requires a file. Use the school CRICOS code as target_code when known, otherwise a known school/package name; put component course codes and an existing package ID in content. Actual public evidence links are optional.
+
 ## Identity and notifications
 
 Anonymous users can create one-way feedback; anonymous tickets cannot be retrieved, discussed or claimed later, even after login. Signed-in users can read and append to their own signed-in tickets using the existing connection, with no separate feedback permission request. Let the host handle required sign-in; never ask for tokens, codes or cookies in chat.
