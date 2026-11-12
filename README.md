@@ -17,12 +17,14 @@ One U Education 面向官网用户的技能源码。与面向员工的 `OneUEdu/
 | Claude Code | `claude plugin install one-u-education --marketplace OneUEdu/oneuedu-skills` | 规划、反馈技能 + MCP |
 | Codex | `codex plugin marketplace add OneUEdu/oneuedu-skills`，再 `codex plugin add one-u-education@oneuedu` | 规划、反馈技能 + MCP |
 | GitHub Copilot CLI | `copilot plugin marketplace add OneUEdu/oneuedu-skills`，再 `copilot plugin install one-u-education@oneuedu` | 规划、反馈技能 + MCP |
+| Grok Build | `grok plugin install OneUEdu/oneuedu-skills --trust`，再 `grok plugin enable one-u-education` | 规划、反馈技能 + MCP（未实测，见下） |
 | 其他支持 Agent Skills 的客户端（Cursor、Gemini CLI、OpenCode 等） | `npx skills add OneUEdu/oneuedu-skills -s australian-immigration-planning website-feedback` | 只有技能，MCP 要按客户端说明另加 |
 
 在 Claude Code 对话里也可以输入 `/plugin install one-u-education --marketplace OneUEdu/oneuedu-skills`。
 
 - 申请技能 `australian-course-application` 要用 ChatGPT 的安全表单和确认卡片，直接安装不带它。ChatGPT 版由 oneuedu-plugin 打包、走 OpenAI 审核。
-- 清单不写版本号，客户端按 Git 提交更新。推送新提交后，用户运行 `claude plugin update one-u-education@oneuedu`、`codex plugin marketplace upgrade` 或 `copilot plugin update one-u-education@oneuedu` 拿到新版。
+- 清单不写版本号，客户端按 Git 提交更新。推送新提交后，用户运行 `claude plugin update one-u-education@oneuedu`、`codex plugin marketplace upgrade` 、`copilot plugin update one-u-education@oneuedu` 或 `grok plugin update one-u-education` 拿到新版。
+- `.grok-plugin/` 按 xAI 插件市场（xai-org/plugin-marketplace）的格式写：Grok Build 先读 `.grok-plugin/plugin.json`，再读 `.claude-plugin/`；`marketplace.json` 让仓库能直接 `grok plugin install OneUEdu/oneuedu-skills` 安装。`--trust` 跳过安装时的信任确认；有资料说 enable 之后才加载技能，要新开会话。2026-11-12 还**没有实测**：xAI 的索引脚本总会扫描 `skills/` 整个目录，Grok 是否按清单只装规划、反馈两个技能、要不要单独 enable，以实测为准。
 - `.cursor-plugin/` 按 Cursor 文档写好了，但 Cursor 只能从自己的插件市场装，要先在 cursor.com/marketplace/publish 提交，没有实测。VS Code 的 “Chat: Install Plugin From Source” 用的是 Copilot 格式，也没有实测。
 - 2026-11-03 在隔离的配置目录里实测：Claude Code 2.1.316、Codex CLI 0.166.0、Copilot CLI 1.0.105 都只加载规划、反馈两个技能，并连上 MCP；skills CLI 1.7.6 按 `-s` 只装这两个。
 
