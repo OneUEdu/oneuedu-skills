@@ -30,6 +30,17 @@ Inside a Claude Code session you can also type `/plugin install one-u-education 
 
 All manifests are generated in one place by `scripts/platforms.py`; don't edit them by hand. To change the name, description, skill list or MCP URL, edit that script and run `python3 scripts/platforms.py`. `scripts/check.py` checks that the manifests are up to date. Whether a new skill is included in the direct-install plugins is decided in the script's `SKILLS` list; `CLAUDE_SKILLS` adds the application skill for Claude Code only.
 
+## Data and privacy
+
+The plugin adds no local code. The skills are instructions, and every lookup or action goes to One U Education's MCP server at `https://mcp.oneuedu.com/mcp`.
+
+- Public lookups send only the query the assistant builds, such as course, occupation or visa search terms and codes. No sign-in is needed.
+- When you sign in to One U Education (OAuth on www.oneuedu.com, requested only when a tool needs it), the server also receives what you ask it to save or read: facts for your migration-planning dossier, your own course application draft, and feedback or school/visa news you submit, including any files you choose to attach.
+- Feedback sent without signing in goes to One U Education staff for review with the details you provide; an email address is sent only if you give one.
+- The plugin takes no payments and never edits official records. Returned information is general and does not establish personal eligibility.
+
+Privacy policy: https://mcp.oneuedu.com/privacy · Terms: https://www.oneuedu.com/en-US/data-terms · Documentation and support: https://mcp.oneuedu.com/docs
+
 ## Maintenance and distribution
 
 This repository is the single source of truth for the skill instructions. The plugin packaging lives in [oneuedu-plugin](https://github.com/OneUEdu/oneuedu-plugin), whose `plugins/one-u-education/skills` points to an exact commit of this whole repository as a Git submodule, so there is no second copy of the skill text to sync or maintain. In this repository each skill's entry point is still `skills/<name>/`; the build places them into the existing package layout.
@@ -60,3 +71,7 @@ The initial 11 files were copied unchanged from the candidate package committed 
 ### Planning skill 1.9.2 catch-up sync (3 Nov 2026)
 
 Brought in the pre-migration planning text and service reference updates from CRM commit `b07802e4`. Responses now centre on the user's current decision and next steps; comparing occupations, saving a goal and running a calculation are kept distinct; and clarifying high-impact facts and explaining future costs are now covered. The other skills and references are unchanged, and future planning changes are made only in this repository. The plugin syncs from an exact commit of this repository; passing the source checks here does not mean the service has been deployed or that acceptance testing with real models is complete.
+
+## License
+
+[MIT](LICENSE)

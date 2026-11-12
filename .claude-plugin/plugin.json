@@ -15,6 +15,7 @@
     "courses",
     "mcp"
   ],
+  "license": "MIT",
   "displayName": "One U Education",
   "icon": "./assets/logo.png",
   "documentationUrl": "https://mcp.oneuedu.com/docs",
