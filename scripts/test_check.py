@@ -33,13 +33,18 @@ class SkillSources(unittest.TestCase):
 
 
 class PlatformManifests(unittest.TestCase):
-    def test_committed_manifests_are_generated_and_skip_the_chatgpt_application(self):
+    def test_committed_manifests_are_generated_and_only_claude_carries_the_application(self):
         self.assertEqual(sorted(platforms.manifests()), platforms.check())
         self.assertNotIn('australian-course-application', platforms.SKILLS)
         self.assertLess(set(platforms.SKILLS), set(validate()))
+        self.assertEqual(set(platforms.CLAUDE_SKILLS), set(validate()))
+        claude = '.claude-plugin/marketplace.json'
         for name, data in platforms.manifests().items():
             text = platforms.render(data)
-            self.assertNotIn('australian-course-application', text, name)
+            if name == claude:
+                self.assertEqual(platforms.CLAUDE_SKILL_PATHS, data['plugins'][0]['skills'])
+            else:
+                self.assertNotIn('australian-course-application', text, name)
             if 'skills' in data:
                 self.assertEqual(platforms.SKILL_PATHS, data['skills'], name)
 
