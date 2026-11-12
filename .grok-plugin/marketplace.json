@@ -1,0 +1,26 @@
+{
+  "name": "oneuedu",
+  "description": "Australian study and migration help from One U Education: public course, school, occupation and visa data, personal migration planning and feedback through the official MCP server.",
+  "owner": {
+    "name": "One U Education",
+    "url": "https://www.oneuedu.com/"
+  },
+  "plugins": [
+    {
+      "name": "one-u-education",
+      "source": "./",
+      "description": "Australian study and migration help from One U Education: public course, school, occupation and visa data, personal migration planning and feedback through the official MCP server.",
+      "category": "education",
+      "homepage": "https://www.oneuedu.com/",
+      "keywords": [
+        "one-u-education",
+        "one u education",
+        "oneuedu"
+      ],
+      "domains": [
+        "oneuedu.com",
+        "mcp.oneuedu.com"
+      ]
+    }
+  ]
+}

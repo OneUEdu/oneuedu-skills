@@ -23,6 +23,8 @@ TERMS = 'https://www.oneuedu.com/en-US/data-terms'
 REPOSITORY = 'https://github.com/OneUEdu/oneuedu-skills'
 KEYWORDS = ['australia', 'study', 'migration', 'visa', 'courses', 'mcp']
 LOGO = './assets/logo.png'
+GROK_KEYWORDS = ['one-u-education', 'one u education', 'oneuedu']
+GROK_DOMAINS = ['oneuedu.com', 'mcp.oneuedu.com']
 CATEGORY = 'Education & Research'
 PROMPTS = [
     'Compare Melbourne carpentry courses for an onshore student by indicative fees, duration and entry requirements.',
@@ -68,6 +70,14 @@ def manifests():
         '.cursor-plugin/marketplace.json': {
             'name': MARKETPLACE, 'owner': {'name': AUTHOR['name']},
             'plugins': [{'name': NAME, 'source': './', 'description': DESCRIPTION}]},
+        # Grok Build reads .grok-plugin/ before .claude-plugin/. The marketplace makes the repository a
+        # self-contained source for `grok plugin install OneUEdu/oneuedu-skills`; keywords and domains stay
+        # brand-scoped because Grok uses them to suggest the plugin.
+        '.grok-plugin/plugin.json': {**common, 'skills': SKILL_PATHS, 'mcpServers': './.mcp.json'},
+        '.grok-plugin/marketplace.json': {
+            'name': MARKETPLACE, 'description': DESCRIPTION, 'owner': AUTHOR,
+            'plugins': [{'name': NAME, 'source': './', 'description': DESCRIPTION, 'category': 'education',
+                         'homepage': HOMEPAGE, 'keywords': GROK_KEYWORDS, 'domains': GROK_DOMAINS}]},
     }
 
 
