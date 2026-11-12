@@ -14,7 +14,7 @@ The repository root contains a plugin manifest for each client, so you can insta
 
 | Client | Install command | What you get |
 | --- | --- | --- |
-| Claude Code | `claude plugin install one-u-education --marketplace OneUEdu/oneuedu-skills` | Planning and feedback skills + MCP |
+| Claude Code | `claude plugin install one-u-education --marketplace OneUEdu/oneuedu-skills` | Application, planning and feedback skills + MCP |
 | Codex | `codex plugin marketplace add OneUEdu/oneuedu-skills`, then `codex plugin add one-u-education@oneuedu` | Planning and feedback skills + MCP |
 | GitHub Copilot CLI | `copilot plugin marketplace add OneUEdu/oneuedu-skills`, then `copilot plugin install one-u-education@oneuedu` | Planning and feedback skills + MCP |
 | Grok Build | `grok plugin install OneUEdu/oneuedu-skills --trust` | Planning and feedback skills + MCP |
@@ -22,13 +22,13 @@ The repository root contains a plugin manifest for each client, so you can insta
 
 Inside a Claude Code session you can also type `/plugin install one-u-education --marketplace OneUEdu/oneuedu-skills`.
 
-- The application skill `australian-course-application` needs ChatGPT's secure form and confirmation card, so direct installs leave it out. The ChatGPT version is packaged in oneuedu-plugin and goes through OpenAI review.
+- The application skill `australian-course-application` opens Forms and hands an application to a specialist through a secure card. The service only sends that card to clients it has enrolled for secure UI, which today means the ChatGPT plugin packaged in oneuedu-plugin and reviewed by OpenAI. Claude Code also installs the application skill so signed-in users can save and review an application in chat; opening Forms and the handoff return `secure_ui_unavailable` there until a Claude client is enrolled, and the skill reports that limitation instead of working around it. Codex, Copilot CLI and Grok Build leave the application skill out.
 - The manifests have no version number; clients update by Git commit. Once new commits are pushed, users get them with `claude plugin update one-u-education@oneuedu`, `codex plugin marketplace upgrade`, `copilot plugin update one-u-education@oneuedu` or `grok plugin update one-u-education`.
 - `.grok-plugin/` follows the format of the xAI plugin marketplace (xai-org/plugin-marketplace). Grok Build reads `.grok-plugin/plugin.json` first, then `.claude-plugin/`, and `marketplace.json` lets the repository be installed directly with `grok plugin install OneUEdu/oneuedu-skills`. `--trust` skips the trust prompt during install, and the plugin is added to `[plugins].enabled` straight away, so there is no need to run `grok plugin enable`. Tested on 12 Nov 2026 with Grok 1.0.77 in an isolated HOME: `grok inspect` shows only the planning and feedback skills plus the MCP server `one-u-education` (http, `https://mcp.oneuedu.com/mcp`). Without `.grok-plugin/`, Grok falls back to `.claude-plugin/` and installs the application skill as well.
 - `.cursor-plugin/` is written to Cursor's documentation, but Cursor only installs from its own marketplace, so the plugin has to be submitted at cursor.com/marketplace/publish first. It has not been tested. VS Code's "Chat: Install Plugin From Source" uses the Copilot format and has not been tested either.
-- Tested on 3 Nov 2026 in isolated config directories: Claude Code 2.1.316, Codex CLI 0.166.0 and Copilot CLI 1.0.105 each load only the planning and feedback skills and connect to the MCP server; skills CLI 1.7.6 installs only those two skills when given `-s`.
+- Tested on 3 Nov 2026 in isolated config directories: Claude Code 2.1.316, Codex CLI 0.166.0 and Copilot CLI 1.0.105 each load only the planning and feedback skills and connect to the MCP server; skills CLI 1.7.6 installs only those two skills when given `-s`. On 12 Nov 2026 Claude Code 2.1.316 loaded the application, planning and feedback skills plus the MCP server from a local checkout.
 
-All manifests are generated in one place by `scripts/platforms.py`; don't edit them by hand. To change the name, description, skill list or MCP URL, edit that script and run `python3 scripts/platforms.py`. `scripts/check.py` checks that the manifests are up to date. Whether a new skill is included in the direct-install plugin is decided in the script's `SKILLS` list.
+All manifests are generated in one place by `scripts/platforms.py`; don't edit them by hand. To change the name, description, skill list or MCP URL, edit that script and run `python3 scripts/platforms.py`. `scripts/check.py` checks that the manifests are up to date. Whether a new skill is included in the direct-install plugins is decided in the script's `SKILLS` list; `CLAUDE_SKILLS` adds the application skill for Claude Code only.
 
 ## Maintenance and distribution
 

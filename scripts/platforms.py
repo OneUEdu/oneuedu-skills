@@ -9,10 +9,13 @@ ENDPOINT = 'https://mcp.oneuedu.com/mcp'
 NAME = 'one-u-education'
 MARKETPLACE = 'oneuedu'
 DISPLAY_NAME = 'One U Education'
-# The course application needs ChatGPT's secure Forms and confirmation components, so it ships only in
-# the reviewed ChatGPT plugin that oneuedu-plugin builds. Direct installs carry the other skills.
+# The course application's Forms and handoff cards only reach hosts the service has enrolled for secure UI
+# (the reviewed ChatGPT plugin that oneuedu-plugin builds). Claude Code also carries it so users can save and
+# review an application; other direct installs carry the remaining skills.
 SKILLS = ('australian-immigration-planning', 'website-feedback')
 SKILL_PATHS = ['./skills/' + name for name in SKILLS]
+CLAUDE_SKILLS = ('australian-course-application',) + SKILLS
+CLAUDE_SKILL_PATHS = ['./skills/' + name for name in CLAUDE_SKILLS]
 DESCRIPTION = ('Australian study and migration help from One U Education: public course, school, occupation '
                'and visa data, personal migration planning and feedback through the official MCP server.')
 AUTHOR = {'name': 'One U Education', 'url': 'https://www.oneuedu.com/'}
@@ -43,7 +46,7 @@ def manifests():
             'supportUrl': DOCS, 'privacyPolicyUrl': PRIVACY, 'termsOfServiceUrl': TERMS},
         '.claude-plugin/marketplace.json': {
             'name': MARKETPLACE, 'owner': AUTHOR, 'description': DESCRIPTION,
-            'plugins': [{'name': NAME, 'source': './', 'description': DESCRIPTION, 'skills': SKILL_PATHS}]},
+            'plugins': [{'name': NAME, 'source': './', 'description': DESCRIPTION, 'skills': CLAUDE_SKILL_PATHS}]},
         '.codex-plugin/plugin.json': {
             **common, 'skills': SKILL_PATHS, 'mcpServers': './.mcp.json',
             'interface': {
@@ -87,7 +90,7 @@ def render(data):
 
 def check(root=ROOT):
     """Require the generated manifests, their skill paths and logo to be committed as generated."""
-    for path in SKILL_PATHS:
+    for path in CLAUDE_SKILL_PATHS:
         if not (root / path / 'SKILL.md').is_file():
             raise ValueError('Manifest skill is missing: ' + path)
     if not (root / LOGO).is_file() or (root / LOGO).is_symlink():
