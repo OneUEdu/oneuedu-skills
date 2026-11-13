@@ -24,6 +24,7 @@ DOCS = 'https://mcp.oneuedu.com/docs'
 PRIVACY = 'https://mcp.oneuedu.com/privacy'
 TERMS = 'https://www.oneuedu.com/en-US/data-terms'
 REPOSITORY = 'https://github.com/OneUEdu/oneuedu-skills'
+LICENSE = 'MIT'
 KEYWORDS = ['australia', 'study', 'migration', 'visa', 'courses', 'mcp']
 LOGO = './assets/logo.png'
 GROK_KEYWORDS = ['one-u-education', 'one u education', 'oneuedu']
@@ -42,7 +43,7 @@ def manifests():
     return {
         '.mcp.json': {'mcpServers': {NAME: {'type': 'http', 'url': ENDPOINT}}},
         '.claude-plugin/plugin.json': {
-            **common, 'displayName': DISPLAY_NAME, 'icon': LOGO, 'documentationUrl': DOCS,
+            **common, 'license': LICENSE, 'displayName': DISPLAY_NAME, 'icon': LOGO, 'documentationUrl': DOCS,
             'supportUrl': DOCS, 'privacyPolicyUrl': PRIVACY, 'termsOfServiceUrl': TERMS},
         '.claude-plugin/marketplace.json': {
             'name': MARKETPLACE, 'owner': AUTHOR, 'description': DESCRIPTION,
