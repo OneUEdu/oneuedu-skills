@@ -2,7 +2,7 @@
 name: website-feedback
 description: Submit user-requested One U Education corrections, service feedback or school/visa news with optional file attachments, check the user's own feedback progress, and continue an existing discussion with staff. Use for requests such as report this incorrect fee, send this school news with its brochure, check my feedback, or add this to my earlier report. Ordinary course questions or corrections to the assistant's wording alone do not create tickets.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # One U Education feedback
@@ -28,6 +28,10 @@ When the user has requested submission and enough information is available, perf
 ## Packaged courses
 
 Use `target_type=course_package` for a packaged study plan. Submit text from the user or their AI; the source may be conversation, a webpage, a document or another source. Preserve the school, course sequence, separate onshore/offshore total tuition, duration and stated conditions. Unknown details remain unknown. Do not split the package total into course fees. This type does not accept attachments and never requires a file. Use the school CRICOS code as target_code when known, otherwise a known school/package name; put component course codes and an existing package ID in content. Actual public evidence links are optional.
+
+## Government school fees and rules
+
+State education departments run one international program for all their public schools (for example VIC 00861K, course 019048F). Their tuition by year level, charges, homestay, term dates, application deadlines and entry rules apply state-wide. For a report about them, use `target_type=course` with the department course code when known, otherwise `target_type=school` with the department provider code. In content, state the state, year level, application type if known (standard, study abroad, dependant), fee year or intake term, the exact item (for example Years 11–12 tuition, homestay weekly fee, arrival support tier, Term 2 deadline, Year 10 English score), the value shown, the user-reported value and the official page. A quote from one school, homestay family or agent is not a state-wide price: say where it came from. If an estimate looks wrong (first invoice, first-year total), name the underlying item when known instead of only the total. Age limits and visa financial amounts come from Home Affairs; report them as visa information.
 
 ## News submissions
 

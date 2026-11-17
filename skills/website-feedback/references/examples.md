@@ -13,3 +13,4 @@
 - The client cannot read the local file or send HTTP PUT: explain that the attachment cannot be added from this client before submitting anything, and submit text only if the user agrees.
 - “Attach my receipt to the packaged-course report.” Packaged-course reports accept text and links only; explain this and do not upload the file.
 - User says “no email”: set notifications_enabled=false for a new report. Do not substitute a fabricated address. Appending cannot modify an existing ticket's notification preferences.
+- “The Year 11 fee for Victorian public schools is wrong; the department says AUD 23,100 for 2027.” Use `target_type=course`, `target_code=019048F`; content names VIC, Years 11–12 tuition, fee year 2027, the shown value, AUD 23,100 and the department fee page. Do not change it into a report about one school.
