@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "one-u-education": {
+      "type": "http",
+      "url": "https://mcp.oneuedu.com/mcp"
+    }
+  }
+}
