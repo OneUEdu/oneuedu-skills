@@ -20,7 +20,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Skills and manifests
         run: python3 scripts/check.py
       - name: Unit tests
@@ -39,6 +39,6 @@ jobs:
       group: claude-directory
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build and push the Claude directory branch
         run: python3 scripts/directory.py --push
