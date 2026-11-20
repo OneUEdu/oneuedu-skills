@@ -31,6 +31,14 @@ Inside a Claude Code session you can also type `/plugin install one-u-education 
 
 All manifests are generated in one place by `scripts/platforms.py`; don't edit them by hand. To change the name, description, skill list or MCP URL, edit that script and run `python3 scripts/platforms.py`. `scripts/check.py` checks that the manifests are up to date. Whether a new skill is included in the direct-install plugins is decided in the script's `SKILLS` list; `CLAUDE_SKILLS` adds the application skill for Claude Code only.
 
+### Claude plugin directory
+
+The Claude plugin directory reads the `claude-directory` branch, not `main`. From an organisation it has not verified, the directory accepts only Markdown, text, JSON, YAML and PNG, JPEG, GIF, WebP or ICO files, while `main` also holds the Python generator and checks in `scripts/`. `scripts/directory.py` copies what Claude Code loads (`.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, `.mcp.json`, the skills in `CLAUDE_SKILLS` and the icon) plus this README, `LICENSE` and `.gitignore` from a `main` commit into a new commit on `claude-directory`. It stops instead if a copied file has any other type, is executable or a symlink, starts with `#!`, or is text that isn't UTF-8 or holds a NUL byte.
+
+The `Checks` workflow in `.github/workflows/checks.yml` runs the local checks below on every pull request and push, and after each push to `main` it rebuilds and pushes `claude-directory`; a commit that changes none of the copied files leaves the branch as it is. The directory picks up the new commit on its next scheduled check. Don't commit to `claude-directory` by hand. To rebuild it yourself, run `python3 scripts/directory.py --push` on an up-to-date `main`.
+
+Tested on 20 Nov 2026: the branch built from `main` holds 18 files, `claude plugin validate --profile directory` reports nothing on it beyond the missing version, and Claude Code 2.1.316 installs the application, planning and feedback skills plus the connected MCP server from it in an isolated config directory.
+
 ## Data and privacy
 
 The plugin adds no local code. The skills are instructions, and every lookup or action goes to One U Education's MCP server at `https://mcp.oneuedu.com/mcp`.
@@ -56,14 +64,15 @@ The application flow depends on a secure form and confirmation widget, so an ins
 
 ## Local checks
 
-Python 3.12 with the standard library only:
+Python 3.12 with the standard library only, and Git:
 
 ```sh
 python3 scripts/check.py
 python3 -m unittest discover -s scripts -p 'test_*.py' -v
+python3 scripts/directory.py
 ```
 
-These check skill entry points, MCP dependencies, referenced files and distribution boundaries. They make no remote requests, install no skills and send no email. Changes to skill content still need real-world acceptance testing.
+These check skill entry points, MCP dependencies, referenced files and distribution boundaries, and build the `claude-directory` commit from `HEAD` without pushing it. They make no remote requests, install no skills and send no email. Changes to skill content still need real-world acceptance testing.
 
 ## Migration
 
