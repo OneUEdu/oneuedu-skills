@@ -67,8 +67,14 @@ def manifests():
             'plugins': [{'name': NAME, 'source': {'source': 'local', 'path': './'},
                          'policy': {'installation': 'AVAILABLE', 'authentication': 'ON_USE'},
                          'category': CATEGORY}]},
-        # Copilot reads this before .claude-plugin/ and ignores a marketplace entry's skill list.
+        # Copilot CLI reads .github/plugin/ before .claude-plugin/, so it never sees the Claude entry that lists
+        # the application skill. Copilot 1.0.105 loads the skills listed in plugin.json; the marketplace entry's
+        # list only sets the "Installed N skills" count of an install from GitHub. A marketplace added from a
+        # local path counts every folder in skills/, but `copilot skill list` still shows only these two.
         '.github/plugin/plugin.json': {**common, 'skills': SKILL_PATHS, 'mcpServers': './.mcp.json'},
+        '.github/plugin/marketplace.json': {
+            'name': MARKETPLACE, 'owner': AUTHOR, 'description': DESCRIPTION,
+            'plugins': [{'name': NAME, 'source': './', 'description': DESCRIPTION, 'skills': SKILL_PATHS}]},
         '.cursor-plugin/plugin.json': {
             **common, 'logo': LOGO, 'skills': SKILL_PATHS, 'mcpServers': './.mcp.json'},
         '.cursor-plugin/marketplace.json': {

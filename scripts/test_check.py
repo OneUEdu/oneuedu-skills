@@ -47,6 +47,19 @@ class PlatformManifests(unittest.TestCase):
                 self.assertNotIn('australian-course-application', text, name)
             if 'skills' in data:
                 self.assertEqual(platforms.SKILL_PATHS, data['skills'], name)
+            for entry in data.get('plugins', []):
+                if 'skills' in entry and name != claude:
+                    self.assertEqual(platforms.SKILL_PATHS, entry['skills'], name)
+
+    def test_copilot_reads_its_own_marketplace_entry(self):
+        # Copilot checks .github/plugin/marketplace.json before .claude-plugin/marketplace.json.
+        manifests = platforms.manifests()
+        marketplace = manifests['.github/plugin/marketplace.json']
+        entry = marketplace['plugins'][0]
+        self.assertEqual((platforms.MARKETPLACE, platforms.NAME, './'),
+                         (marketplace['name'], entry['name'], entry['source']))
+        self.assertEqual(platforms.SKILL_PATHS, entry['skills'])
+        self.assertEqual(platforms.SKILL_PATHS, manifests['.github/plugin/plugin.json']['skills'])
 
     def test_stale_or_missing_manifest_is_rejected(self):
         for case in ('stale', 'missing', 'skill'):
