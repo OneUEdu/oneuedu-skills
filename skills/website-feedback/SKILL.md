@@ -2,7 +2,7 @@
 name: website-feedback
 description: Submit user-requested One U Education corrections, service feedback or school/visa news with optional file attachments, check the user's own feedback progress, and continue an existing discussion with staff. Use for requests such as report this incorrect fee, send this school news with its brochure, check my feedback, or add this to my earlier report. Ordinary course questions or corrections to the assistant's wording alone do not create tickets.
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
 # One U Education feedback
@@ -28,6 +28,12 @@ When the user has requested submission and enough information is available, perf
 ## Packaged courses
 
 Use `target_type=course_package` for a packaged study plan. Submit text from the user or their AI; the source may be conversation, a webpage, a document or another source. Preserve the school, course sequence, separate onshore/offshore total tuition, duration and stated conditions. Unknown details remain unknown. Do not split the package total into course fees. This type does not accept attachments and never requires a file. Use the school CRICOS code as target_code when known, otherwise a known school/package name; put component course codes and an existing package ID in content. Actual public evidence links are optional.
+
+## Application deadlines and application rules
+
+A school's application deadline for a term, who it applies to (international or domestic students, coursework or research courses), whether it may close early, and its application rules apply to the whole school. A course page shows the school's deadline for an intake that starts on the same day as that school's term. Report a wrong or missing deadline or rule with `target_type=school` and the school's CRICOS provider code (or a known school name), even when the user saw it on a course page; put the course code, intake start date and page in content and `page_url`. Use `target_type=course` only when the school publishes a separate deadline for that course. Set `year` to the intake year when it is a single year; a 2027 Term 1 deadline may fall in 2026.
+
+In content, state the term or intake start date, the audience if known, the deadline shown (with its source and check date when shown), the user-reported date, and the school's admissions or key-dates page and when it was read. For a rule, name its topic, what is wrong or missing, and the school's wording. A date from an agent, an offer letter or another student is a user report, not the school's published deadline: say where it came from. If applications closed early (for example because places filled), report the actual date and how the user learned it. A deadline that has passed is not an error by itself. Use `issue_type=incorrect_data` for a wrong date or rule and `missing_data` when nothing is shown for an intake or school that publishes one. Do not put deadlines in `changes`; its `intakes` field is for course start dates. State government school programs follow the next section.
 
 ## Government school fees and rules
 
