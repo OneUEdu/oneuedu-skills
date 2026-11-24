@@ -17,7 +17,8 @@ SKILL_PATHS = ['./skills/' + name for name in SKILLS]
 CLAUDE_SKILLS = ('australian-course-application',) + SKILLS
 CLAUDE_SKILL_PATHS = ['./skills/' + name for name in CLAUDE_SKILLS]
 DESCRIPTION = ('Australian study and migration help from One U Education: public course, school, occupation '
-               'and visa data, personal migration planning and feedback through the official MCP server.')
+               'and visa data, personal migration planning and feedback through the official MCP server. General '
+               'information only, not professional immigration advice.')
 AUTHOR = {'name': 'One U Education', 'url': 'https://www.oneuedu.com/'}
 HOMEPAGE = 'https://www.oneuedu.com/'
 DOCS = 'https://mcp.oneuedu.com/docs'
@@ -58,7 +59,8 @@ def manifests():
                     'fees, processing times and conditions. Public lookups need no account. With a connected One '
                     'U Education account, users can keep a personal migration-planning dossier, calculate '
                     'pathway options and read the results, and follow up on their own feedback. Information is '
-                    'general, links to its source and does not establish personal eligibility.'),
+                    'general, links to its source, does not establish personal eligibility and is not professional '
+                    'immigration advice.'),
                 'developerName': AUTHOR['name'], 'category': CATEGORY, 'capabilities': ['Read', 'Write'],
                 'websiteURL': HOMEPAGE, 'privacyPolicyURL': PRIVACY, 'termsOfServiceURL': TERMS,
                 'defaultPrompt': PROMPTS, 'composerIcon': LOGO, 'logo': LOGO}},

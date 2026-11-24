@@ -2,6 +2,8 @@
 
 Agent skills for people using the [One U Education](https://www.oneuedu.com/) website: Australian study and migration help built on public course, school, occupation and visa data, personal migration planning and feedback, all through the official MCP server. Staff-facing skills are maintained separately in `OneUEdu/oneulink-skills`.
 
+**Not professional advice.** Answers and planning results from these skills are general information based on public data. They are not professional immigration advice and do not decide your own visa eligibility or outcome. Check your own case with a registered migration agent before you act on it.
+
 | Skill | What it does |
 | --- | --- |
 | [website-feedback](skills/website-feedback/SKILL.md) | Submit feedback, check the progress of your own reports and continue the public discussion |
@@ -46,7 +48,7 @@ The plugin adds no local code. The skills are instructions, and every lookup or 
 - Public lookups send only the query the assistant builds, such as course, occupation or visa search terms and codes. No sign-in is needed.
 - When you sign in to One U Education (OAuth on www.oneuedu.com, requested only when a tool needs it), the server also receives what you ask it to save or read: facts for your migration-planning dossier, your own course application draft, and feedback or school/visa news you submit, including any files you choose to attach.
 - Feedback sent without signing in goes to One U Education staff for review with the details you provide; an email address is sent only if you give one.
-- The plugin takes no payments and never edits official records. Returned information is general and does not establish personal eligibility.
+- The plugin takes no payments and never edits official records. Returned information is general, does not establish personal eligibility and is not professional immigration advice.
 
 Privacy policy: https://mcp.oneuedu.com/privacy · Terms: https://www.oneuedu.com/en-US/data-terms · Documentation and support: https://mcp.oneuedu.com/docs
 
