@@ -29,6 +29,10 @@ When the user has requested submission and enough information is available, perf
 
 Use `target_type=course_package` for a packaged study plan. Submit text from the user or their AI; the source may be conversation, a webpage, a document or another source. Preserve the school, course sequence, separate onshore/offshore total tuition, duration and stated conditions. Unknown details remain unknown. Do not split the package total into course fees. This type does not accept attachments and never requires a file. Use the school CRICOS code as target_code when known, otherwise a known school/package name; put component course codes and an existing package ID in content. Actual public evidence links are optional.
 
+## Recognised language pathways
+
+For a wrong or missing recognition relationship, report the school shown on the affected page and identify both the language provider and the accepting school by name and CRICOS code when known. Use a school feedback ticket and describe the relationship, its scope and evidence in the report text. See the [recognition example](references/examples.md) for a reverse-lookup report.
+
 ## Application deadlines and application rules
 
 A school's application deadline for a term, who it applies to (international or domestic students, coursework or research courses), whether it may close early, and its application rules apply to the whole school. A course page shows the school's deadline for an intake that starts on the same day as that school's term. Report a wrong or missing deadline or rule with `target_type=school` and the school's CRICOS provider code (or a known school name), even when the user saw it on a course page; put the course code, intake start date and page in content and `page_url`. Use `target_type=course` only when the school publishes a separate deadline for that course. Set `year` to the intake year when it is a single year; a 2027 Term 1 deadline may fall in 2026.
