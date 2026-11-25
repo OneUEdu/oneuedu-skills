@@ -29,6 +29,12 @@ When the user has requested submission and enough information is available, perf
 
 Use `target_type=course_package` for a packaged study plan. Submit text from the user or their AI; the source may be conversation, a webpage, a document or another source. Preserve the school, course sequence, separate onshore/offshore total tuition, duration and stated conditions. Unknown details remain unknown. Do not split the package total into course fees. This type does not accept attachments and never requires a file. Use the school CRICOS code as target_code when known, otherwise a known school/package name; put component course codes and an existing package ID in content. Actual public evidence links are optional.
 
+## Recognised language pathways
+
+For a wrong or missing school in a language course's onward-study results, use `target_type=course` and the exact language course CRICOS code as `target_code`. For a wrong or missing rule in the accepting school's list of recognised courses, use `target_type=school` and that school's CRICOS provider code. If only the language school is known, establish the exact language course before treating the report as a course-specific correction.
+
+In either report, identify the language course, its provider and the accepting school as far as known. Include the affected page or query, any limits on the main course, degree or campus, the completion requirement, validity dates and available evidence in the report text. See the [recognition example](references/examples.md).
+
 ## Application deadlines and application rules
 
 A school's application deadline for a term, who it applies to (international or domestic students, coursework or research courses), whether it may close early, and its application rules apply to the whole school. A course page shows the school's deadline for an intake that starts on the same day as that school's term. Report a wrong or missing deadline or rule with `target_type=school` and the school's CRICOS provider code (or a known school name), even when the user saw it on a course page; put the course code, intake start date and page in content and `page_url`. Use `target_type=course` only when the school publishes a separate deadline for that course. Set `year` to the intake year when it is a single year; a 2027 Term 1 deadline may fall in 2026.
