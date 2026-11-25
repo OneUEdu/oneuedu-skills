@@ -31,7 +31,9 @@ Use `target_type=course_package` for a packaged study plan. Submit text from the
 
 ## Recognised language pathways
 
-For a wrong or missing recognition relationship, report the school shown on the affected page and identify both the language provider and the accepting school by name and CRICOS code when known. Use a school feedback ticket and describe the relationship, its scope and evidence in the report text. See the [recognition example](references/examples.md) for a reverse-lookup report.
+For a wrong or missing school in a language course's onward-study results, use `target_type=course` and the exact language course CRICOS code as `target_code`. For a wrong or missing rule in the accepting school's list of recognised courses, use `target_type=school` and that school's CRICOS provider code. If only the language school is known, establish the exact language course before treating the report as a course-specific correction.
+
+In either report, identify the language course, its provider and the accepting school as far as known. Include the affected page or query, any limits on the main course, degree or campus, the completion requirement, validity dates and available evidence in the report text. See the [recognition example](references/examples.md).
 
 ## Application deadlines and application rules
 
