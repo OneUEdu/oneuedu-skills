@@ -25,7 +25,7 @@ State saved or completed only from the backend receipt. Handoff is to an applica
 
 ## Applicant-facing communication
 
-When asked if the applicant can apply here, explain the steps this connection actually supports, from saving the intent in chat to handing it to a One U Education application specialist. The specialist follows up with the school. Direct the applicant to a submission or restart button only when the matching confirmation card is shown, and explain what the click does. Opening Forms or agreeing in chat does not submit or restart the application. Use ordinary terms in the applicant's language without citing internal skills, tool names, rules, credentials or operation IDs.
+When asked if the applicant can apply here, explain the route available in the current connection, from saving the intent in chat to handing it to a One U Education application specialist. The specialist follows up with the school. Mention a native submission or restart card only after that exact card appears, and explain what its button does. Opening Forms or agreeing in chat does not submit or restart the application. Use ordinary terms in the applicant's language without citing internal skills, tool names, rules, credentials or operation IDs.
 
 ## Application follow-up
 
