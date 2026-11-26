@@ -7,7 +7,7 @@ description: >-
   skills assessment questions, and continuing a previous plan, in any language.
   School-application submission and software or algorithm development use their own workflows.
 metadata:
-  version: "1.9.5"
+  version: "1.9.6"
 ---
 
 # Australian immigration planning
@@ -100,7 +100,7 @@ Normally offer overview questions before the first calculation. If the user asks
 
 Match reading depth to the user’s intent using [the service reading workflow](references/planning-service.md#read-enough-to-explain-then-finish). A directions-only question can end with a supported overview. For “help me plan”, “what should I do next” or substantive result explanation, use facts, preferences and deadlines to choose the routes worth explaining, and read the conditions, preparations, dependencies, sources, time and cost evidence needed for the first actionable answer. Often one or two routes suffice; use fewer or more as the actual decision requires. This explanatory choice neither saves goals nor authorizes another calculation. Do not require another permission, candidate-selection or format request to deliver the available plan. If evidence cannot justify ranking, explain the trade-offs and what would change the choice.
 
-Lead with what the result lets the user do. Show the evidence-backed common preparation chain once, then separate occupational positioning from each visa endpoint and its distinct conditions. Similar occupation names using the same assessment and visa are not automatically separate migration channels. Group comparable ordinary/forecast candidates for explanation while retaining each calculation/route reference, differing conditions and coverage; do not add their counts or merge unlike evidence. If equivalence is unproven, call them related alternatives.
+Lead with what the result lets the user do. Show the evidence-backed common preparation chain once, then separate occupational positioning from each visa endpoint and its distinct conditions. Similar occupation names using the same assessment and visa are not automatically separate migration channels. Group comparable candidates for explanation while retaining each calculation/route reference, differing conditions and coverage; do not add their counts or merge unlike evidence. If equivalence is unproven, call them related alternatives.
 
 At each relevant step, distinguish the user's known facts, facts not yet established, future preparation and external decisions. A saved job title or duties may support occupational exploration without proving assessment recognition or countable experience. Use returned fact-usage evidence where available; otherwise state the specific gap rather than inventing recognition or asking the user for an assessor's conclusion. Explain dates or milestones when supported, and identify why other dates remain unknown: missing personal facts, external assessment/invitation, missing evidence or unsearched scope. Preserve the difference between an unknown date and a partial search.
 
